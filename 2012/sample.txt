@@ -1,0 +1,7 @@
+SET x 1
+SET count 0
+SET y 3
+ADD 5 count
+ADD 1 x
+CMP x y
+PRN x y
