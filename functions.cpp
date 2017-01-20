@@ -74,6 +74,17 @@ int binary(int bina){
     return ans;
 }
 
+//１０進数を２進数のvectorへ
+vector<int> dicimal_to_binary(int a){
+  vector<int> result;
+  while(a > 0){
+    result.pb(a % 2);
+    a = a / 2;
+  }
+  reverse(result.begin(),result.end());
+  return result;
+}
+
 //素数を判定する
 bool isPrime(int x){
   int i;
@@ -164,27 +175,7 @@ int max (vector<int> array){
   return maxval;
 }
 
-//ファイルの行数を指定して読み込む
-//fileOpener("ファイル名",行数)
-string fileOpenerSelectingLine(string filename, int line_num){
-  ifstream ifs(filename);
-  string result;string str;
-  int cnt = 1;
 
-  if (ifs.fail())
-  {
-      return "失敗";
-  }
-
-  while(getline(ifs,str)){
-    if(cnt == line_num){
-      result = str;
-    }
-    cnt += 1;
-  }
-
-  return result;
-}
 
 static const int MAX = 10000;
 static const int INFTY = (1<<20);
@@ -228,7 +219,6 @@ void dijkstra(){
 
 }
 
-//参照わたしをしなきゃ、このままじゃ機能しません！
 void fileReader(string filename,vector<string> &vec){
 
   ifstream ifs(filename);
